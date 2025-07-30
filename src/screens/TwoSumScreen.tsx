@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet, Pressable } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Pressable, } from 'react-native';
 import NumberInput from '../components/NumberInput';
 import NumberList from '../components/NumberList';
 import ResultDisplay from '../components/ResultDisplay';
 import TwoSumTest from '../components/two-sum';
+import { FindIndices, textFontSize, TwoSum } from '../shared/constants';
+import { colors } from '../shared/colors';
 
 export default function TwoSumScreen() {
   const [numbers, setNumbers] = useState<number[]>([]);  //stores the list of numbers entered
@@ -50,7 +52,7 @@ export default function TwoSumScreen() {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>Two Sum (Dynamic)</Text>
+      <Text style={styles.headerTitle}>{TwoSum}</Text>
       <NumberInput inputValue={inputNumber} onChange={setInputNumber} onAdd={addNumber} />
       <NumberList numbers={numbers} onRemove={removeNumber} />
       <TextInput
@@ -60,7 +62,9 @@ export default function TwoSumScreen() {
         onChangeText={setTarget}
         keyboardType="numeric"
       />
-      <Button title="Find Indices" onPress={handleTwoSum} />
+      <Pressable onPress={handleTwoSum} style={styles.button}>
+        <Text style={styles.buttonText}>{FindIndices}</Text>
+      </Pressable>
       <ResultDisplay result={result} />
       <TwoSumTest />
     </View>
@@ -69,14 +73,14 @@ export default function TwoSumScreen() {
 
 const styles = StyleSheet.create({
   screen: { padding: 20 },
-  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 10 },
+  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, marginBottom: 10 },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
     padding: 10,
     marginVertical: 10,
-    color: '#333'
+    color: colors.black
   },
   numberItemContainer: {
     flexDirection: 'row',
@@ -93,8 +97,7 @@ const styles = StyleSheet.create({
     marginRight: 4
   },
   removeButton: {
-    backgroundColor: '#ff4444',
-    borderRadius: 12,
+    backgroundColor: colors.red, borderRadius: 12,
     paddingHorizontal: 6,
     paddingVertical: 2,
     alignItems: 'center',
@@ -113,5 +116,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15
   },
-  buttonText: { color: '#fff', fontWeight: 'bold' }
+  buttonText: { color: '#fff', fontWeight: 'bold' },
+  button: {
+    backgroundColor: '#f36911',
+    padding: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 15
+  },
 });

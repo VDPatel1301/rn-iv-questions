@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TextInput, Pressable, Text, StyleSheet } from 'react-native';
+import { AddNumber } from '../shared/constants';
 
 type Props = {
   inputValue: string;
@@ -18,8 +19,9 @@ export default function NumberInput({ inputValue, onChange, onAdd }: Props) {
         style={styles.input}
       />
       <Pressable onPress={onAdd} style={styles.button}>
-        <Text style={styles.buttonText}>Add Number</Text>
+        <Text style={styles.buttonText}>{AddNumber}</Text>
       </Pressable>
+
     </>
   );
 }

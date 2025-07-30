@@ -1,5 +1,7 @@
 import React from 'react';
 import { FlatList, Text, View, Pressable, StyleSheet } from 'react-native';
+import { textFontSize } from '../shared/constants';
+import { colors } from '../shared/colors';
 
 type Props = {
   numbers: number[];
@@ -31,23 +33,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     backgroundColor: '#eee',
     borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 4
+   padding:8
   },
   number: {
-    fontSize: 18,
+    fontSize: textFontSize.medium,
     color: '#333',
     marginRight: 4
   },
   removeButton: {
-    backgroundColor: '#ff4444',
+    backgroundColor:colors.red,
     borderRadius: 12,
     paddingHorizontal: 6,
     paddingVertical: 2
   },
   removeText: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 10,
     fontWeight: 'bold'
   }
 });

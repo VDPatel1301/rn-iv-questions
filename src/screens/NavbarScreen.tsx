@@ -7,10 +7,14 @@ import {
   StyleSheet,
   Linking,
   Platform,
+  useWindowDimensions,
 } from 'react-native';
+import { Collabera, menuItems, textFontSize } from '../shared/constants';
+import { colors } from '../shared/colors';
 
 export default function NavbarScreen() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { width } = useWindowDimensions();
 
   const handleLinkPress = (url: string) => {
     if (Platform.OS === 'web') {
@@ -18,14 +22,23 @@ export default function NavbarScreen() {
     } else {
       Linking.openURL(url);
     }
+
+    // Close menu on mobile after click
+    if (width < 768) {
+      setMenuOpen(false);
+    }
   };
 
   return (
     <View style={styles.container}>
-      {/* Navbar Header */}
+      {/* Navbar Top */}
       <View style={styles.navbar}>
-        <Pressable onPress={() => handleLinkPress('/')}>
-          <Text style={styles.title}>Collabera</Text>
+        <Pressable
+          onPress={() => handleLinkPress('/')}
+          accessibilityRole="link"
+          accessibilityLabel="Home link"
+        >
+          <Text style={styles.headerTitle}>{Collabera}</Text>
         </Pressable>
 
         <TextInput
@@ -39,16 +52,14 @@ export default function NavbarScreen() {
         </Pressable>
       </View>
 
-      {/* Menu Items */}
+      {/* Navbar Menu Items */}
       {menuOpen && (
         <View style={styles.menu}>
-          {['Showcase', 'Docs', 'Blog', 'Analytics', 'Commerce', 'Templates', 'Enterprise'].map(
-            (item, index) => (
-              <Pressable key={index} onPress={() => handleLinkPress('/')}>
-                <Text style={styles.menuItem}>{item}</Text>
-              </Pressable>
-            )
-          )}
+          {menuItems.map((item, index) => (
+            <Pressable key={index} onPress={() => handleLinkPress('/')}>
+              <Text style={styles.menuItem}>{item}</Text>
+            </Pressable>
+          ))}
         </View>
       )}
     </View>
@@ -56,20 +67,19 @@ export default function NavbarScreen() {
 }
 
 const styles = StyleSheet.create({
+      headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold',  color:colors.orange },
+
   container: {
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: '#fff',
   },
   navbar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 10,
     marginBottom: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#111',
   },
   searchInput: {
     flex: 1,
@@ -78,25 +88,32 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 6,
     paddingHorizontal: 10,
-    paddingVertical: 6,
+    paddingVertical: Platform.OS === 'web' ? 6 : 8,
     fontSize: 14,
     minWidth: 120,
+    backgroundColor: '#f1f1f1',
   },
   menuIcon: {
-    fontSize: 20,
+    fontSize: textFontSize.extraLarge,
     fontWeight: 'bold',
+    color: '#333',
   },
   menu: {
     backgroundColor: '#f9f9f9',
     paddingVertical: 10,
     borderRadius: 8,
     marginTop: 4,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 2,
   },
   menuItem: {
-    paddingVertical: 8,
+    paddingVertical: 10,
     paddingHorizontal: 12,
     fontSize: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: '#eee',
+    color: colors.black,
   },
 });

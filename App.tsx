@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
-import { View, StyleSheet, Pressable, Text } from 'react-native';
-import CalculatorScreen from './screens/CalculatorScreen';
-import NavbarScreen from './screens/NavbarScreen';
-import TwoSumScreen from './screens/TwoSumScreen';
+import { View, StyleSheet } from 'react-native';
+import CalculatorScreen from './src/screens/CalculatorScreen';
+import NavbarScreen from './src/screens/NavbarScreen';
+import TwoSumScreen from './src/screens/TwoSumScreen';
+import NavButton from './src/components/NavButton';
 
 type Screen = 'calculator' | 'navbar' | 'twosum';
 
@@ -12,35 +14,21 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.topNav}>
-        <Pressable
-          style={[
-            styles.buttonStyle,
-            screen === 'calculator' ? styles.activeButton : styles.inactiveButton,
-          ]}
+        <NavButton
+          label="Calculator"
+          isActive={screen === 'calculator'}
           onPress={() => setScreen('calculator')}
-        >
-          <Text style={styles.title}>Calculator</Text>
-        </Pressable>
-
-        <Pressable
-          style={[
-            styles.buttonStyle,
-            screen === 'navbar' ? styles.activeButton : styles.inactiveButton,
-          ]}
+        />
+        <NavButton
+          label="NavBar"
+          isActive={screen === 'navbar'}
           onPress={() => setScreen('navbar')}
-        >
-          <Text style={styles.title}>NavBar</Text>
-        </Pressable>
-
-        <Pressable
-          style={[
-            styles.buttonStyle,
-            screen === 'twosum' ? styles.activeButton : styles.inactiveButton,
-          ]}
+        />
+        <NavButton
+          label="Two Sum"
+          isActive={screen === 'twosum'}
           onPress={() => setScreen('twosum')}
-        >
-          <Text style={styles.title}>Two Sum</Text>
-        </Pressable>
+        />
       </View>
 
       {screen === 'calculator' && <CalculatorScreen />}
@@ -53,24 +41,4 @@ export default function App() {
 const styles = StyleSheet.create({
   container: { flex: 1, paddingTop: 50 },
   topNav: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 },
-  buttonStyle: {
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 100,
-    height: 40,
-  },
-  activeButton: {
-    backgroundColor: '#f36911',
-  },
-  inactiveButton: {
-    backgroundColor: 'lightgray',
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#fff',
-    textAlign: 'center',
-    marginBottom: 0,
-  },
 });

@@ -39,5 +39,3 @@ RN_IV_Questions/
  npx expo start
 
 ## Scan the QR code with the Expo Go app on your phone (ensure it matches SDK version).
-
- npx expo start --web
