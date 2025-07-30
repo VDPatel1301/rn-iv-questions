@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import CustomInput from '../components/CustomInput';
 import { useForm, Controller } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { calculatorSchema, CalculatorForm } from '../schemas/calculatorSchema ';
 import { AddTwoNumbers, Calculate, textFontSize } from '../shared/constants';
 import { colors } from '../shared/colors';
 import CustomButton from '../components/CustomButton';
+import { zodResolver } from '@hookform/resolvers/zod/dist/zod.js';
 
 export default function CalculatorScreen() {
     const [result, setResult] = useState<number | null>(null);

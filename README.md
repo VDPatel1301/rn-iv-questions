@@ -10,14 +10,13 @@ This is a React Native + TypeScript project built with Expo SDK 53. It includes 
 - Add two numbers
 - Validates empty input before calculating
 - Uses custom reusable `CustomInput` and `Button` components
+- Validates:
+- Input validation with **Zod** + `react-hook-form`
 
 ### 2️⃣ Two Sum Screen
 - Accepts dynamic number inputs
 - Adds numbers to a list (with delete support)
 - Finds two numbers that sum to a target using the **Two Pointer** technique
-- Validates:
-  - At least 2 numbers before enabling "Find Indices"
-  - Input validation with **Zod** + `react-hook-form`
 - Modular components: `NumberInput`, `NumberList`, `ResultDisplay`
 
 ### 3️⃣ Navbar Screen
@@ -30,10 +29,12 @@ This is a React Native + TypeScript project built with Expo SDK 53. It includes 
 
 ## 🧠 Tech Stack
 
-- **React Native** (Expo SDK 53)
+- **React Native** (via [Expo SDK 53](https://docs.expo.dev/versions/latest/))
 - **TypeScript**
-- **Zod** + `react-hook-form` + `@hookform/resolvers/zod`
-- **Platform API** for Web & Mobile support
+- **Zod** – schema validation
+- **react-hook-form** – form state management
+- **Jest** – testing framework
+- **React Native Testing Library (RTL)** – component testing
 
 ---
 
@@ -43,8 +44,13 @@ rn-iv-questions-main/
 ├── App.tsx # Root component with screen navigation
 ├── package.json
 ├── tsconfig.json
+├── jest.config.js
 ├── .gitignore
 ├── README.md
+├── tests/ # All test files
+│ ├── App.test.tsx
+│ ├── CalculatorScreen.test.tsx
+│ └── TwoSumScreen.test.tsx
 └── src/
 ├── components/ # Reusable UI components
 │ ├── CustomButton.tsx
@@ -73,10 +79,32 @@ rn-iv-questions-main/
 git clone https://github.com/your-username/rn-iv-questions.git
 cd rn-iv-questions
 
+2. Install dependencies
 
 npm install
 
+3. Start the app
 
 npx expo start
 
-Scan QR code using Expo Go
+📱 Scan the QR code using Expo Go
+
+🧪 Testing (Jest + RTL)
+This project includes unit tests using Jest and React Native Testing Library.
+
+✅ Setup (Already done)
+jest
+
+@testing-library/react-native
+
+@testing-library/jest-native
+
+react-test-renderer@19.0.0
+
+✅ Run tests
+
+npm test
+
+✅ Run specific test file
+
+npx jest __tests__/CalculatorScreen.test.tsx
