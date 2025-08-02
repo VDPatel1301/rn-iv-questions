@@ -26,15 +26,16 @@ This is a React Native + TypeScript project built with Expo SDK 53. It includes 
 - Basic mobile-friendly layout
 
 
-🖼️ Image Asset Handling with Centralized Icon.ts
+## 🖼️ Image Asset Handling with Centralized Icon.ts
 
-Images are organized centrally using an interface for type-safe access:
+- Images are organized centrally using an interface for type-safe access:
 
-✅ Keeps your image references type-safe and consistent.
+- ✅ Keeps your image references type-safe and consistent.
 
 
-✨ Custom Splash Screen with Fade-in Animation
-We use a custom splash screen component that fades in the logo and transitions to the main app after 3 seconds.
+## ✨ Custom Splash Screen with Fade-in Animation
+
+- We use a custom splash screen component that fades in the logo and transitions to the main app after 3 seconds.
 
 ---
 
