@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Pressable, } from 'react-native';
+import { View, Text, TextInput,  StyleSheet, Pressable, } from 'react-native';
 import NumberInput from '../components/NumberInput';
 import NumberList from '../components/NumberList';
 import ResultDisplay from '../components/ResultDisplay';
@@ -69,7 +69,7 @@ export default function TwoSumScreen() {
         onPress={isReadyToCalculate ? handleTwoSum : undefined}
         style={[
           styles.button,
-          !isReadyToCalculate && styles.buttonDisabled, // new style
+          !isReadyToCalculate && styles.buttonDisabled, // Disable button if not enough numbers
         ]}
       >
         <Text style={styles.buttonText}>{FindIndices}</Text>

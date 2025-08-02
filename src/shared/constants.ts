@@ -1,9 +1,10 @@
 export const Calculate = 'Calculate'
 export const AddTwoNumbers = 'Add Two Numbers';
-export const Collabera='Collabera';
+export const Collabera = 'Collabera';
 export const FindIndices = 'Find Indices';
-export const TwoSum = 'Two Sum';
-export const AddNumber='Add Number'
+export const TwoSum = 'Find Indices of Two Numbers';
+export const AddNumber = 'Add Number';
+export const NoSolution = 'No solution';
 
 export const textFontSize = {
     small: 10,
