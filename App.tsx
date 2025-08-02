@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, StyleSheet, Animated } from 'react-native';
 import CalculatorScreen from './src/screens/CalculatorScreen';
 import NavbarScreen from './src/screens/NavbarScreen';
 import TwoSumScreen from './src/screens/TwoSumScreen';
@@ -14,9 +14,35 @@ export default function App() {
   const [isSplashVisible, setSplashVisible] = useState(true);
   const [screen, setScreen] = useState<Screen>('calculator');
 
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+
+  // Handle fade animation when screen changes
+  useEffect(() => {
+    fadeAnim.setValue(0); // Reset to invisible
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 700,
+      useNativeDriver: true,
+    }).start();
+  }, [screen]);
+
+
   if (isSplashVisible) {
     return <SplashScreen onFinish={() => setSplashVisible(false)} />;
   }
+
+  const renderScreen = () => {
+    switch (screen) {
+      case 'calculator':
+        return <CalculatorScreen />;
+      case 'navbar':
+        return <NavbarScreen />;
+      case 'twosum':
+        return <TwoSumScreen />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -43,9 +69,9 @@ export default function App() {
         />
       </View>
 
-      {screen === 'calculator' && <CalculatorScreen />}
-      {screen === 'navbar' && <NavbarScreen />}
-      {screen === 'twosum' && <TwoSumScreen />}
+      <Animated.View style={[styles.screenWrapper, { opacity: fadeAnim }]}>
+        {renderScreen()}
+      </Animated.View>
     </View>
   );
 }
@@ -53,4 +79,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: { flex: 1, paddingTop: 50 },
   topNav: { flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10 },
+   screenWrapper: {
+    flex: 1,
+  },
 });
