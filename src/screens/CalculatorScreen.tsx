@@ -67,7 +67,7 @@ export default function CalculatorScreen() {
 
 const styles = StyleSheet.create({
     screen: { padding: 20 },
-    title: { fontSize: textFontSize.large, fontWeight: 'bold', marginBottom: 10, color: colors.orange },
+    title: { fontSize: textFontSize.large, fontWeight: 'bold', marginBottom: 24, color: colors.orange, textAlign: 'center' },
     result: { marginTop: 15, fontSize: textFontSize.large, color: colors.black, fontWeight: 'bold' },
     button: {
         backgroundColor: colors.orange,

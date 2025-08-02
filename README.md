@@ -92,36 +92,37 @@ rn-iv-questions-main/
 
 ### 1. Clone the repository
 
-```bash
-git clone https://github.com/your-username/rn-iv-questions.git
-cd rn-iv-questions
+- git clone https://github.com/your-username/rn-iv-questions.git
 
-2. Install dependencies
+- cd rn-iv-questions
 
-npm install
+### 2. Install dependencies
 
-3. Start the app
+- npm install
 
-npx expo start
+### 3. Start the app
 
-📱 Scan the QR code using Expo Go
+- npx expo start
 
-🧪 Testing (Jest + RTL)
-This project includes unit tests using Jest and React Native Testing Library.
+### 📱 Scan the QR code using Expo Go
 
-✅ Setup (Already done)
-jest
+### 🧪 Testing (Jest + RTL)
+- This project includes unit tests using Jest and React Native Testing Library.
 
-@testing-library/react-native
+### ✅ Setup (Already done)
 
-@testing-library/jest-native
+- jest
 
-react-test-renderer@19.0.0
+- @testing-library/react-native
 
-✅ Run tests
+- @testing-library/jest-native
 
-npm test
+- react-test-renderer@19.0.0
 
-✅ Run specific test file
+### ✅ Run tests
 
-npx jest __tests__/CalculatorScreen.test.tsx
+- npm test
+
+### ✅ Run specific test file
+
+- npx jest __tests__/CalculatorScreen.test.tsx

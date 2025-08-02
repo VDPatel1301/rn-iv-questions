@@ -10,7 +10,7 @@ import {
   useWindowDimensions,
   Image,
 } from 'react-native';
-import { menuItems, textFontSize } from '../shared/constants';
+import { Collabera, menuItems, textFontSize } from '../shared/constants';
 import { colors } from '../shared/colors';
 import { IMAGE } from '../shared/allIcons/Icon';
 
@@ -33,6 +33,9 @@ export default function NavbarScreen() {
 
   return (
     <View style={styles.container}>
+
+            <Text style={styles.headerTitle}>{Collabera}</Text>
+      
       {/* Navbar Top */}
       <View style={styles.navbar}>
         <Pressable
@@ -72,9 +75,10 @@ export default function NavbarScreen() {
 }
 
 const styles = StyleSheet.create({
+  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, textAlign: 'center',paddingBottom:24 },
 
   container: {
-    paddingTop: 50,
+    paddingTop: 24,
     paddingHorizontal: 16,
     backgroundColor: '#fff',
   },

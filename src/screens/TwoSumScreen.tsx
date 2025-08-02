@@ -73,13 +73,13 @@ export default function TwoSumScreen() {
 
 const styles = StyleSheet.create({
   screen: { padding: 20 },
-  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, marginBottom: 10 },
+  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, marginBottom: 24,textAlign:'center'},
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.lightgray,
     borderRadius: 8,
     padding: 10,
-    marginVertical: 10,
+    marginVertical: 20,
     color: colors.black
   },
   numberItemContainer: {
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   listItem: {
     fontSize: 18,
-    color: '#333',
+    color: colors.black,
     marginRight: 4
   },
   removeButton: {
@@ -104,21 +104,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   removeText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 14,
     fontWeight: 'bold'
   },
-  result: { marginTop: 15, fontSize: 18, fontWeight: 'bold', color: '#333' },
+  result: { marginTop: 15, fontSize: 18, fontWeight: 'bold', color: colors.black },
   addButton: {
-    backgroundColor: '#f36911',
+    backgroundColor: colors.orange,
     padding: 10,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 15
   },
-  buttonText: { color: '#fff', fontWeight: 'bold' },
+  buttonText: { color: colors.white, fontWeight: 'bold' },
   button: {
-    backgroundColor: '#f36911',
+    backgroundColor:colors.orange,
     padding: 10,
     borderRadius: 8,
     alignItems: 'center',

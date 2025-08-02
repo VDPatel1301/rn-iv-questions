@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, View, Image } from 'react-native';
 import { colors } from '../shared/colors';
 
-type Props = {
+type SplashScreenProps = {
   onFinish: () => void;
 };
 
-const SplashScreen: React.FC<Props> = ({ onFinish }) => {
+const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
