@@ -51,7 +51,6 @@ export default function NavbarScreen() {
 
         <TextInput
           placeholder="Search documentation..."
-          placeholderTextColor="#999"
           style={styles.searchInput}
         />
 
@@ -76,7 +75,6 @@ export default function NavbarScreen() {
 
 const styles = StyleSheet.create({
   headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, textAlign: 'center',paddingBottom:24 },
-
   container: {
     paddingTop: 24,
     paddingHorizontal: 16,
@@ -93,10 +91,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 10,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.lightgray,
     borderRadius: 6,
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS === 'web' ? 6 : 8,
+    paddingVertical: Platform.OS === 'web' ? 6 : 10,
     fontSize: 14,
     minWidth: 120,
     backgroundColor: '#f1f1f1',

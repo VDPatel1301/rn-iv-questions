@@ -22,7 +22,7 @@ export default function CustomButton({ title, onPress, style, textStyle }: Props
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.orange,
-    padding: 10,
+    padding: 14,
     borderRadius: 12,
     alignItems: 'center',
     marginTop: 12,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TextInput, Pressable, Text, StyleSheet } from 'react-native';
 import { AddNumber } from '../shared/constants';
+import { colors } from '../shared/colors';
 
 type Props = {
   inputValue: string;
@@ -29,18 +30,18 @@ export default function NumberInput({ inputValue, onChange, onAdd }: Props) {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: colors.lightgray,
     borderRadius: 8,
-    padding: 10,
+    padding: 14,
     marginBottom: 16,
-    color: '#333'
+    color: colors.black
   },
   button: {
-    backgroundColor: '#f36911',
-    padding: 10,
+    backgroundColor: colors.orange,
+    padding: 14,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 15
   },
-  buttonText: { color: '#fff', fontWeight: 'bold' }
+  buttonText: { color: colors.white, fontWeight: 'bold' }
 });

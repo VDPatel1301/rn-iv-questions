@@ -6,6 +6,7 @@ import NavbarScreen from './src/screens/NavbarScreen';
 import TwoSumScreen from './src/screens/TwoSumScreen';
 import NavButton from './src/components/NavButton';
 import SplashScreen from './src/screens/SplashScreen';
+import { IMAGE } from './src/shared/allIcons/Icon';
 
 type Screen = 'calculator' | 'navbar' | 'twosum';
 
@@ -21,19 +22,24 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.topNav}>
         <NavButton
-          label="Calculator"
+          // label="Calculator"
           isActive={screen === 'calculator'}
           onPress={() => setScreen('calculator')}
+          icon={IMAGE.calculator_icon}
         />
         <NavButton
-          label="NavBar"
+          // label="NavBar"
           isActive={screen === 'navbar'}
           onPress={() => setScreen('navbar')}
+          icon={IMAGE.navbar_icon}
+
         />
         <NavButton
-          label="Two Sum"
+          // label="Two Sum"
           isActive={screen === 'twosum'}
           onPress={() => setScreen('twosum')}
+          icon={IMAGE.twosum_icon}
+
         />
       </View>
 

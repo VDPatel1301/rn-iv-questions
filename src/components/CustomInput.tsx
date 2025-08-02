@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.lightgray,
         borderRadius: 12,
-        padding: 10,
+        padding: 14,
         marginVertical: 5,
         width: '100%',
         fontWeight: 'bold',

@@ -50,6 +50,9 @@ export default function TwoSumScreen() {
     setResult([]); // If loop finishes and no pair is found, set result as "no solution"
   };
 
+  // New line to help control display
+  const isReadyToCalculate = numbers.length >= 2;
+
   return (
     <View style={styles.screen}>
       <Text style={styles.headerTitle}>{TwoSum}</Text>
@@ -62,10 +65,16 @@ export default function TwoSumScreen() {
         onChangeText={setTarget}
         keyboardType="numeric"
       />
-      <Pressable onPress={handleTwoSum} style={styles.button}>
+      <Pressable
+        onPress={isReadyToCalculate ? handleTwoSum : undefined}
+        style={[
+          styles.button,
+          !isReadyToCalculate && styles.buttonDisabled, // new style
+        ]}
+      >
         <Text style={styles.buttonText}>{FindIndices}</Text>
       </Pressable>
-      <ResultDisplay result={result} />
+      {isReadyToCalculate && result !== null && <ResultDisplay result={result} />}
       <TwoSumTest />
     </View>
   );
@@ -73,12 +82,12 @@ export default function TwoSumScreen() {
 
 const styles = StyleSheet.create({
   screen: { padding: 20 },
-  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, marginBottom: 24,textAlign:'center'},
+  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, marginBottom: 24, textAlign: 'center' },
   input: {
     borderWidth: 1,
     borderColor: colors.lightgray,
     borderRadius: 8,
-    padding: 10,
+    padding: 14,
     marginVertical: 20,
     color: colors.black
   },
@@ -111,17 +120,22 @@ const styles = StyleSheet.create({
   result: { marginTop: 15, fontSize: 18, fontWeight: 'bold', color: colors.black },
   addButton: {
     backgroundColor: colors.orange,
-    padding: 10,
+    padding: 14,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 15
   },
   buttonText: { color: colors.white, fontWeight: 'bold' },
   button: {
-    backgroundColor:colors.orange,
-    padding: 10,
+    backgroundColor: colors.orange,
+    padding: 14,
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 15
+  }, buttonDisabled: {
+    backgroundColor: colors.gray,
+    opacity: 0.6,
   },
+
+
 });
