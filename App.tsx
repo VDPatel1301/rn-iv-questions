@@ -5,11 +5,17 @@ import CalculatorScreen from './src/screens/CalculatorScreen';
 import NavbarScreen from './src/screens/NavbarScreen';
 import TwoSumScreen from './src/screens/TwoSumScreen';
 import NavButton from './src/components/NavButton';
+import SplashScreen from './src/screens/SplashScreen';
 
 type Screen = 'calculator' | 'navbar' | 'twosum';
 
 export default function App() {
+  const [isSplashVisible, setSplashVisible] = useState(true);
   const [screen, setScreen] = useState<Screen>('calculator');
+
+  if (isSplashVisible) {
+    return <SplashScreen onFinish={() => setSplashVisible(false)} />;
+  }
 
   return (
     <View style={styles.container}>

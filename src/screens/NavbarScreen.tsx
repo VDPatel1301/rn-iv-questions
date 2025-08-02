@@ -8,9 +8,11 @@ import {
   Linking,
   Platform,
   useWindowDimensions,
+  Image,
 } from 'react-native';
-import { Collabera, menuItems, textFontSize } from '../shared/constants';
+import { menuItems, textFontSize } from '../shared/constants';
 import { colors } from '../shared/colors';
+import { IMAGE } from '../shared/allIcons/Icon';
 
 export default function NavbarScreen() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +40,10 @@ export default function NavbarScreen() {
           accessibilityRole="link"
           accessibilityLabel="Home link"
         >
-          <Text style={styles.headerTitle}>{Collabera}</Text>
+          <Image style={{ width: 50, height: 50 }}
+            source={IMAGE["company_logo"]}
+            resizeMode="contain"
+          />
         </Pressable>
 
         <TextInput
@@ -67,7 +72,6 @@ export default function NavbarScreen() {
 }
 
 const styles = StyleSheet.create({
-      headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold',  color:colors.orange },
 
   container: {
     paddingTop: 50,

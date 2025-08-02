@@ -25,6 +25,17 @@ This is a React Native + TypeScript project built with Expo SDK 53. It includes 
 - Hamburger menu toggles open/close (`☰ ↔ ✕`)
 - Basic mobile-friendly layout
 
+
+🖼️ Image Asset Handling with Centralized Icon.ts
+
+Images are organized centrally using an interface for type-safe access:
+
+✅ Keeps your image references type-safe and consistent.
+
+
+✨ Custom Splash Screen with Fade-in Animation
+We use a custom splash screen component that fades in the logo and transitions to the main app after 3 seconds.
+
 ---
 
 ## 🧠 Tech Stack
@@ -47,6 +58,8 @@ rn-iv-questions-main/
 ├── jest.config.js
 ├── .gitignore
 ├── README.md
+├── assets/
+│ └── company-logo.png # Logo for splash and UI usage
 ├── tests/ # All test files
 │ ├── App.test.tsx
 │ ├── CalculatorScreen.test.tsx
@@ -63,10 +76,13 @@ rn-iv-questions-main/
 ├── screens/ # App screens
 │ ├── CalculatorScreen.tsx
 │ ├── NavbarScreen.tsx
-│ └── TwoSumScreen.tsx
+│ ├── TwoSumScreen.tsx
+│ └── SplashScreen.tsx
 └── shared/ # Constants and theme
 ├── colors.ts
-└── constants.ts
+├── constants.ts
+└── allIcons/
+└── Icon.ts # Custom image registry
 
 
 ---
