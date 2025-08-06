@@ -1,18 +1,19 @@
 import React from 'react';
 import { Image, ImageSourcePropType, Pressable, StyleSheet } from 'react-native';
 import { colors } from '../shared/colors';
-import { textFontSize } from '../shared/constants';
 
 type NavButtonProps = {
+  testID?: string;
   isActive: boolean;
   onPress: () => void;
   icon: ImageSourcePropType;
 
 };
 
-export default function NavButton({  isActive, onPress, icon }: NavButtonProps) {
+export default function NavButton({ testID, isActive, onPress, icon }: NavButtonProps) {
   return (
     <Pressable
+    testID={testID}
       style={[styles.buttonStyle, isActive ? styles.activeButton : styles.inactiveButton]}
       onPress={onPress}
     >

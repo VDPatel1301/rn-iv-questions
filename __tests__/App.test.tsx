@@ -1,10 +1,19 @@
 import React from 'react';
-import { render } from '@testing-library/react-native';
+import { render, waitFor } from '@testing-library/react-native';
 import App from '../App';
 
-test('renders navigation buttons', () => {
-  const { getByText } = render(<App />);
-  expect(getByText('Calculator')).toBeTruthy();
-  expect(getByText('NavBar')).toBeTruthy();
-  expect(getByText('Two Sum')).toBeTruthy();
+jest.useFakeTimers();
+
+test('shows navigation buttons after splash screen', async () => {
+  const { getByTestId } = render(<App />);
+
+  // fast-forward splash screen timeout
+  jest.runAllTimers();
+
+  // wait for navigation buttons to appear
+  await waitFor(() => {
+    expect(getByTestId('nav-button-calculator')).toBeTruthy();
+    expect(getByTestId('nav-button-navbar')).toBeTruthy();
+    expect(getByTestId('nav-button-twosum')).toBeTruthy();
+  });
 });

@@ -34,8 +34,8 @@ export default function NavbarScreen() {
   return (
     <View style={styles.container}>
 
-            <Text style={styles.headerTitle}>{Collabera}</Text>
-      
+      <Text style={styles.headerTitle}>{Collabera}</Text>
+
       {/* Navbar Top */}
       <View style={styles.navbar}>
         <Pressable
@@ -74,7 +74,7 @@ export default function NavbarScreen() {
 }
 
 const styles = StyleSheet.create({
-  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, textAlign: 'center',paddingBottom:24 },
+  headerTitle: { fontSize: textFontSize.large, fontWeight: 'bold', color: colors.orange, textAlign: 'center', paddingBottom: 24 },
   container: {
     paddingTop: 24,
     paddingHorizontal: 16,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import CustomInput from '../components/CustomInput';
 import { useForm, Controller } from 'react-hook-form';
 import { calculatorSchema, CalculatorForm } from '../schemas/calculatorSchema ';

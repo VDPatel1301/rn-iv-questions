@@ -48,17 +48,22 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.topNav}>
         <NavButton
+          testID="nav-button-calculator"
           isActive={screen === 'calculator'}
           onPress={() => setScreen('calculator')}
           icon={IMAGE.calculator_icon}
         />
         <NavButton
+          testID="nav-button-navbar"
+
           isActive={screen === 'navbar'}
           onPress={() => setScreen('navbar')}
           icon={IMAGE.navbar_icon}
 
         />
         <NavButton
+          testID="nav-button-twosum"
+
           isActive={screen === 'twosum'}
           onPress={() => setScreen('twosum')}
           icon={IMAGE.twosum_icon}
