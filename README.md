@@ -105,18 +105,24 @@ rn-iv-questions-main/
 
 ### 📱 Scan the QR code using Expo Go
 
+## 📱 Manual Platform Launch (CLI)
+
+✅ Android
+
+- npm run android
+
+✅ iOS (Mac only)
+
+- npm run ios
+
+✅ Web
+
+- npm run web
+
+
 ### 🧪 Testing (Jest + RTL)
+
 - This project includes unit tests using Jest and React Native Testing Library.
-
-### ✅ Setup (Already done)
-
-- jest
-
-- @testing-library/react-native
-
-- @testing-library/jest-native
-
-- react-test-renderer@19.0.0
 
 ### ✅ Run tests
 
