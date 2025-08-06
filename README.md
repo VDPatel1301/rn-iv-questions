@@ -10,7 +10,6 @@ This is a React Native + TypeScript project built with Expo SDK 53. It includes 
 - Add two numbers
 - Validates empty input before calculating
 - Uses custom reusable `CustomInput` and `Button` components
-- Validates:
 - Input validation with **Zod** + `react-hook-form`
 
 ### 2️⃣ Two Sum Screen
@@ -126,3 +125,35 @@ rn-iv-questions-main/
 ### ✅ Run specific test file
 
 - npx jest __tests__/CalculatorScreen.test.tsx
+
+
+## ⚙️ Continuous Integration (CI) – GitHub Actions
+
+This project uses **GitHub Actions** to automate continuous integration tasks. The workflow is defined in `.github/workflows/ci.yml`.
+
+### ✅ What It Does
+
+On every push or pull request to the `main` branch, the workflow:
+
+1. **Checks out the code**
+2. **Sets up Node.js environment**
+3. **Installs project dependencies**
+4. **Runs TypeScript type checking**
+5. **Runs unit and integration tests using Jest**
+
+### 🔍 CI Tools Used
+- **GitHub Actions** – For running workflows on every push/PR
+- **jest-expo** – To run tests in a React Native + Expo environment
+- **@testing-library/react-native** – For writing and testing UI behavior
+
+### 🛠️ Related Scripts in `package.json`
+
+```json
+"scripts": {
+  "start": "expo start",
+  "android": "expo start --android",
+  "ios": "expo start --ios",
+  "web": "expo start --web",
+  "test": "jest"
+}
+
